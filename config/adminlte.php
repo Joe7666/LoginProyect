@@ -335,6 +335,26 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
+            'text' => 'Ver Empleados',
+            'url'  => 'empleados',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Ver Carreras',
+            'url'  => 'carreras',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Ver Periodos',
+            'url'  => 'periodos',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Asignar Empleado a Carrera en un Periodo',
+            'url'  => 'empleado-carreras',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [

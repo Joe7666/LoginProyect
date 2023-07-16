@@ -48,6 +48,10 @@ class Usuario extends Model
     {
         return $this->hasMany('App\Models\Asignacion', 'usuario_id', 'id');
     }
+
+    public function empleados(){
+      return $this->hasOne(Empleado::class);
+    }
     
     public function setPasswordAttribute($Password){
       $this ->attributes['Password']=bcrypt($Password);

@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <div class="container-fluid">
+<div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -15,11 +15,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Asignacion') }}
+                                {{ __('Carrera') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('asignacions.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('carreras.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -38,24 +38,28 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Usuario Id</th>
-										<th>Role Id</th>
+										<th>Nombrecarrera</th>
+										<th>Estado</th>
+										<th>Facultad</th>
+										<th>Usuariomodifica</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($asignacions as $asignacion)
+                                    @foreach ($carreras as $carrera)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $asignacion->usuario->NombreUsuario }}</td>
-											<td>{{ $asignacion->role->Nombre}}</td>
+											<td>{{ $carrera->NombreCarrera }}</td>
+											<td>{{ $carrera->Estado }}</td>
+											<td>{{ $carrera->Facultad }}</td>
+											<td>{{ $carrera->UsuarioModifica }}</td>
 
                                             <td>
-                                                <form action="{{ route('asignacions.destroy',$asignacion->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('asignacions.show',$asignacion->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('asignacions.edit',$asignacion->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('carreras.destroy',$carrera->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('carreras.show',$carrera->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('carreras.edit',$carrera->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
@@ -68,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $asignacions->links() !!}
+                {!! $carreras->links() !!}
             </div>
         </div>
     </div>

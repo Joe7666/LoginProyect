@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <div class="container-fluid">
+<div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -15,11 +15,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Asignacion') }}
+                                {{ __('Periodo') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('asignacions.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('periodos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -38,24 +38,30 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Usuario Id</th>
-										<th>Role Id</th>
+										<th>Nombreperiodo</th>
+										<th>Fechainicio</th>
+										<th>Fechafin</th>
+										<th>Estado</th>
+										<th>Usuariomodifica</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($asignacions as $asignacion)
+                                    @foreach ($periodos as $periodo)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $asignacion->usuario->NombreUsuario }}</td>
-											<td>{{ $asignacion->role->Nombre}}</td>
+											<td>{{ $periodo->NombrePeriodo }}</td>
+											<td>{{ $periodo->FechaInicio }}</td>
+											<td>{{ $periodo->FechaFin }}</td>
+											<td>{{ $periodo->Estado }}</td>
+											<td>{{ $periodo->UsuarioModifica }}</td>
 
                                             <td>
-                                                <form action="{{ route('asignacions.destroy',$asignacion->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('asignacions.show',$asignacion->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('asignacions.edit',$asignacion->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                <form action="{{ route('periodos.destroy',$periodo->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('periodos.show',$periodo->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('periodos.edit',$periodo->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
@@ -68,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $asignacions->links() !!}
+                {!! $periodos->links() !!}
             </div>
         </div>
     </div>
