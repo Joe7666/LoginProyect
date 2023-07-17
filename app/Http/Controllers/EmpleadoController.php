@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleado;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,8 @@ class EmpleadoController extends Controller
     public function create()
     {
         $empleado = new Empleado();
-        return view('empleado.create', compact('empleado'));
+        $usu = Usuario::pluck('NombreUsuario','id');
+        return view('empleado.create', compact('empleado','usu'));
     }
 
     /**
@@ -73,8 +75,9 @@ class EmpleadoController extends Controller
     public function edit($id)
     {
         $empleado = Empleado::find($id);
-
-        return view('empleado.edit', compact('empleado'));
+        
+        $usu = Usuario::pluck('NombreUsuario','id');
+        return view('empleado.edit', compact('empleado','usu'));
     }
 
     /**

@@ -56,7 +56,7 @@
 											<td>{{ $empleado->CodigoEmpleado }}</td>
 											<td>{{ $empleado->Apellidos }}</td>
 											<td>{{ $empleado->Nombres }}</td>
-											<td>{{ $empleado->usuario_id }}</td>
+											<td>{{ $empleado->usuario->NombreUsuario }}</td>
 											<td>{{ $empleado->FechaIngreso }}</td>
 											<td>{{ $empleado->UsuarioModifica }}</td>
 

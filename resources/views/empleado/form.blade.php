@@ -18,7 +18,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('usuario_id') }}
-            {{ Form::text('usuario_id', $empleado->usuario_id, ['class' => 'form-control' . ($errors->has('usuario_id') ? ' is-invalid' : ''), 'placeholder' => 'Usuario Id']) }}
+            {{ Form::select('usuario_id',$usu, $empleado->usuario_id, ['class' => 'form-control' . ($errors->has('usuario_id') ? ' is-invalid' : ''), 'placeholder' => 'Usuario Id']) }}
             {!! $errors->first('usuario_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
