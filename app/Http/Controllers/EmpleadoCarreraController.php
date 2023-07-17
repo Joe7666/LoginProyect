@@ -80,7 +80,11 @@ class EmpleadoCarreraController extends Controller
     {
         $empleadoCarrera = EmpleadoCarrera::find($id);
 
-        return view('empleado-carrera.edit', compact('empleadoCarrera'));
+        $emp= Empleado::pluck('CodigoEmpleado','id');
+        $carr= Carrera::pluck('NombreCarrera','id');
+        $per= Periodo::pluck('NombrePeriodo','id');
+
+        return view('empleado-carrera.edit', compact('empleadoCarrera','emp','carr','per'));
     }
 
     /**
