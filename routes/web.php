@@ -8,6 +8,7 @@ use App\Http\Controllers\CarreraController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\PeriodoController;
 use App\Http\Controllers\EmpleadoCarreraController;
+use App\Http\Controllers\EmpleadoActividadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::resource('empleadoactividad',EmpleadoActividadController::class);
